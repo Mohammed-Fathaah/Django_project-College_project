@@ -4,4 +4,4 @@ from .models import Teacher
 class TeacherForm(forms.ModelForm):
     class Meta:
         model=Teacher
-        fields=['name','age','department']
+        fields=['name','age','department','salary']

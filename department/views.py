@@ -4,7 +4,11 @@ from .forms import DepartmentForm
 
 # List all departments
 def department_list(request):
-    department = Department.objects.all()
+    query = request.GET.get('q')  # Get search query from URL
+    if query:
+        department = Department.objects.filter(name__icontains=query)
+    else:
+        department = Department.objects.all()
     return render(request, 'department_list.html', {'department': department})
 
 # Add new department
@@ -28,7 +32,7 @@ def edit_department(request, id):
             return redirect('department_list')
     else:
         form = DepartmentForm(instance=dept)
-    return render(request, 'add_department.html', {'form': form})
+    return render(request, 'edit_department.html', {'form': form})
 
 # Delete department
 def delete_department(request, id):

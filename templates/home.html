@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-4"></h1>
+<hr>
+
+<div class="mb-4 text-center">
+    <a href="{% url 'department_list' %}" class="btn btn-primary me-2">Departments</a>
+    <a href="{% url 'teacher_list' %}" class="btn btn-success">Teachers</a>
+</div>
+
+{% endblock %}
